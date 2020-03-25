@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standardMargin">4dp</dimen>
+    <dimen name="textSize">16sp</dimen>
+    <dimen name="logo_item_size">30dp</dimen>
+    <dimen name="largeTeamLogoLandscapeSize">200dp</dimen>
+    <dimen name="largeTeamLogoSize">150dp</dimen>
+</resources>

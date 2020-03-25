@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/standardMargin">
+
+        <ImageView
+            android:id="@+id/ivTeamLogo"
+            android:layout_width="@dimen/largeTeamLogoSize"
+            android:layout_height="@dimen/largeTeamLogoSize"
+            android:src="@drawable/ic_logo_error"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/standardMargin">
+
+            <TextView
+                android:id="@+id/tvTeamAbbreviation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="ABC"/>
+            <TextView
+                android:id="@+id/tvTeamName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Name"/>
+            <TextView
+                android:id="@+id/tvTeamCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="City"/>
+            <TextView
+                android:id="@+id/tvTeamConference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Conference"/>
+            <TextView
+                android:id="@+id/tvTeamDivision"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Conference"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srlSwipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPlayers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+            <TextView
+                android:id="@+id/tvErrorMessage"
+                android:text="@string/errorMessage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:visibility="gone"/>
+        </FrameLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

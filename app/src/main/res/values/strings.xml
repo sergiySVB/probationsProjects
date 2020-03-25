@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">TaskApi</string>
+    <string name="division">division</string>
+    <string name="conference">conference</string>
+    <string name="cancel">cancel</string>
+    <string name="apply">apply</string>
+    <string name="available_filter_parameters">available filter parameters</string>
+    <string name="position">position</string>
+    <string name="messageEmptyTeamList">There are no commands available for these filter parameters. Swipe to reset or change filter settings</string>
+    <string name="errorMessage">Download was interrupted. The list of players may not be complete. Check your internet connection and try again.</string>
+    <string name="none">none</string>
+    <string name="east">East</string>
+    <string name="west">West</string>
+    <string name="southeast">Southeast</string>
+    <string name="southwest">Southwest</string>
+    <string name="northwest">Northwest</string>
+    <string name="pacific">Pacific</string>
+    <string name="central">Central</string>
+    <string name="atlantic">Atlantic</string>
+</resources>
