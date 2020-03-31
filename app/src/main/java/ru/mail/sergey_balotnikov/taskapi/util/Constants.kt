@@ -13,13 +13,9 @@ class Constants {
         const val TEAM_LOGO_PATH = "https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/%s.png"
         const val KEY_TEAM = "KEY_TEAM"
         const val KEY_FRAGMENT = "KEY_FRAGMENT"
-        const val FLAG_TEAM_UPDATE = "FLAG_TEAM_UPDATE"
-        const val FLAG_TEAMS_GET = "FLAG_TEAM_UPDATE"
-        const val BAD_CONNECTION = "BAD_CONNECTION"
-        const val UNKNOWN_ERROR = "UNKNOWN_ERROR"
         const val TAG_TEEM_LIST_SCREEN = "TAG_TEEM_LIST_SCREEN"
-        const val TAG_TEEM_DETAILS_SCREEN = "TAG_TEEM_DETAILS_SCREEN"
-        const val TAG_TEEM_FILTER_SCREEN = "TAG_TEEM_FILTER_SCREEN"
+        const val SCOPE_NAMED_FILTER = "SCOPE_NAMED_FILTER"
+        const val SCOPE_NAMED_SELECTED = "SCOPE_NAMED_SELECTED"
     }
     private constructor()
 }
