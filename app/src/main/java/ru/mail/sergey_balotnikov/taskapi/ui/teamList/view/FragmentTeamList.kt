@@ -24,7 +24,13 @@ import ru.mail.sergey_balotnikov.taskapi.ui.teamList.model.Team
 import ru.mail.sergey_balotnikov.taskapi.ui.teamList.presenter.TeamListPresenterImpl
 import androidx.appcompat.widget.SearchView.OnQueryTextListener as OnQueryTextListener
 import android.os.Handler
+import android.util.Log
 import ru.mail.sergey_balotnikov.taskapi.MainActivityRouter
+import ru.mail.sergey_balotnikov.taskapi.NBAApp
+import ru.mail.sergey_balotnikov.taskapi.di.component.DaggerTeamsComponent
+import ru.mail.sergey_balotnikov.taskapi.di.component.TeamsComponent
+import ru.mail.sergey_balotnikov.taskapi.di.module.TeamsModule
+import ru.mail.sergey_balotnikov.taskapi.ui.MainActivity
 import javax.inject.Inject
 
 
@@ -34,10 +40,15 @@ class FragmentTeamList:Fragment(), TeamsViewPresenterContract.ItemListView,
         fun newInstance(): FragmentTeamList {
             return FragmentTeamList()
         }
+        lateinit var teamsComponent: TeamsComponent
+        fun getComponent() = teamsComponent
     }
 
     @Inject
     lateinit var router2: MainActivityRouter
+    @Inject
+    lateinit var router: Router
+
     private lateinit var presenter: TeamListPresenter
     private val adapter: TeamListAdapter =
         TeamListAdapter()
@@ -45,7 +56,6 @@ class FragmentTeamList:Fragment(), TeamsViewPresenterContract.ItemListView,
     private var filterImageButton: ImageButton? = null
     private var swipeRefreshLayout: SwipeRefreshLayout? = null
     private lateinit var recycler: RecyclerView
-    private lateinit var router: Router
     private lateinit var emptyListMessage: TextView
     private val handler = Handler()
     private lateinit var throttlingRun: Runnable
@@ -53,12 +63,21 @@ class FragmentTeamList:Fragment(), TeamsViewPresenterContract.ItemListView,
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
+        setupComponent()
         super.onCreate(savedInstanceState)
-
-        if (activity is Router) {
-            router = activity as Router
-        }
+//        if (activity is Router) {
+//            router = activity as Router
+//        }
         presenter = TeamListPresenterImpl(this, router)
+
+    }
+
+    private fun setupComponent() {
+        teamsComponent = DaggerTeamsComponent.builder()
+            .activityComponent(MainActivity.getComponent())
+            .teamsModule(TeamsModule())
+            .build()
+        teamsComponent.inject(this)
     }
 
     override fun onCreateView(
@@ -66,7 +85,8 @@ class FragmentTeamList:Fragment(), TeamsViewPresenterContract.ItemListView,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        router2.goToDetails()
+
+        router2.goToDetails()
         return inflater.inflate(ru.mail.sergey_balotnikov.taskapi.R.layout.fragment_team_list, container, false)
     }
 

@@ -51,7 +51,6 @@ class TeamListPresenterImpl: TeamsViewPresenterContract.TeamListPresenter {
     }
 
     override fun onRefresh(){
-
         getTeamList()
     }
     override fun getFilter()= router.getFilter()

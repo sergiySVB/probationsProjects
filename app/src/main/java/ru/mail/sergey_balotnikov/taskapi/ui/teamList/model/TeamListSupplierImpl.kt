@@ -20,7 +20,7 @@ class TeamListSupplierImpl: TeamListSupplier {
             }
     }
 
-    private fun filter(teams: List<Team>, filter: Team): List<Team> =
+    fun filter(teams: List<Team>, filter: Team): List<Team> =
         teams.filter { it.filterMatcher(filter)
         }
 
